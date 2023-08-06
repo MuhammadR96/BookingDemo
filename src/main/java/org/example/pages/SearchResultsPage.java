@@ -1,27 +1,35 @@
 package org.example.pages;
 
+import org.example.utilities.Constants;
+import org.example.utilities.ExcelReaderMine;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 public class SearchResultsPage {
 
     //Constructor
-    public SearchResultsPage(WebDriver driver) {
+    public SearchResultsPage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
 
 
     WebDriver driver;
-    //Refactor Data-Driven
+
+
     String desiredHotel = "Tolip Hotel Alexandria";
 
 
     //Locators
-    By desiredHotelLocator = By.xpath("//div[contains(text(),'" + desiredHotel + "')]");
-    By nextPageButtonLocator = By.xpath("//button[@aria-label=\"Next page\"]");
+    private By desiredHotelLocator = By.xpath("//div[contains(text(),'" + desiredHotel + "')]");
+    private By nextPageButtonLocator = By.xpath("//button[@aria-label=\"Next page\"]");
 
 
 
@@ -53,8 +61,8 @@ public class SearchResultsPage {
         List<WebElement> hotels;
         String desiredHotel = "";
 
-        while (!desiredHotel.contains("olip")){
-            Thread.sleep(2000);
+        while (!desiredHotel.contains("Tolip")){
+            Thread.sleep(1500);
             hotels = driver.findElements(By.xpath("//div[@class=\"d20f4628d0\"]"));
             for (int i = 0; i < hotels.size(); i++) {
                 desiredHotel = hotels.get(i).getText();
@@ -68,6 +76,6 @@ public class SearchResultsPage {
             }
             clickOnNextPageButton();
         }
-//        System.out.println("Found the Hotel, and it's: " + desiredHotel);
+//        System.out.println("Found the Hotel, and it's: " + desiredHotel);         //Checkpoint (Done)
     }
 }

@@ -4,23 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="017ca6c6-333b-490f-917a-72114c2d2a58" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/myData.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/ConfirmationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/DesiredHotelPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/SearchResultsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReaderMine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/MainTest.java" afterDir="false" />
+    <list default="true" id="017ca6c6-333b-490f-917a-72114c2d2a58" name="Changes" comment="first working test -still without excel-">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/myData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/input/myData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/DesiredHotelPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/DesiredHotelPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/SearchResultsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/SearchResultsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utilities/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReaderMine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReaderMine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +61,7 @@
       <recent name="org.example.pages" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MainTest.mainTest">
+  <component name="RunManager" selected="TestNG.MainTest">
     <configuration name="ExcelReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.utilities.ExcelReader" />
       <module name="SumergeAutomationTask" />
@@ -118,9 +112,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.MainTest" />
         <item itemvalue="TestNG.MainTest.mainTest" />
         <item itemvalue="Application.ExcelReaderExample" />
-        <item itemvalue="TestNG.MainTest" />
       </list>
     </recent_temporary>
   </component>
@@ -133,6 +127,18 @@
       <option name="presentableId" value="Default" />
       <updated>1691147752234</updated>
     </task>
+    <task id="LOCAL-00001" summary="first working test -still without excel-">
+      <created>1691256185046</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691256185046</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first working test -still without excel-" />
+    <option name="LAST_COMMIT_MESSAGE" value="first working test -still without excel-" />
   </component>
 </project>

@@ -19,10 +19,10 @@ public class DesiredHotelPage {
 
 
     //Locators
-    By reserveButtonLocator = By.xpath("//button[@id='hp_book_now_button']");
-    By largeBedRadioButtonLocator = By.xpath("//input[@name='bedPreference_78883120' and @value='2']");
-    By amountDropDownMenuLocator = By.xpath("//select[@id='hprt_nos_select_78883120_91939502_0_33_0_41999']");
-    By confirmReservationButtonLocator = By.xpath("//button/span[contains(text(), 'reserve')]");
+    private By reserveButtonLocator = By.xpath("//button[@id='hp_book_now_button']");
+    private By largeBedRadioButtonLocator = By.xpath("//input[@name='bedPreference_78883120' and @value='2']");
+    private By amountDropDownMenuLocator = By.xpath("//select[@id='hprt_nos_select_78883120_91939502_0_33_0_41999']");
+    private By confirmReservationButtonLocator = By.xpath("//button/span[contains(text(), 'reserve')]");
 
 
     //Actions

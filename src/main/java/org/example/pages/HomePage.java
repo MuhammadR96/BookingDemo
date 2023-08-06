@@ -1,10 +1,13 @@
 package org.example.pages;
 
+import org.example.utilities.Constants;
 import org.example.utilities.ExcelReaderMine;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -14,29 +17,32 @@ public class HomePage {
 
 
     //Constructor
-    public HomePage(WebDriver driver) {
+    public HomePage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
 
 
     WebDriver driver;
 
-    //Refactor and make it Data-Driven
-    String checkInDate = "1 October 2023";
-    String checkOutDate = "15 October 2023";
+    //Refactor and make it Data-Driven (Done)
+    ExcelReaderMine excelReaderMine = new ExcelReaderMine(Constants.EXCEL_FILE_NAME);
+    String checkInDate = excelReaderMine.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.CHECK_IN_DATE);
+    String checkOutDate = excelReaderMine.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.CHECK_OUT_DATE);
+    String destination = excelReaderMine.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.LOCATION);
+
 
 
     //Locators
-    By destinationTextBoxLocator = By.id(":rc:");
-    By checkInDateDropDownMenuLocator = By.xpath("//button[@data-testid=\"date-display-field-start\"]");
-    By checkInDateLocator = By.xpath("//span[@aria-label=\"" + checkInDate + "\"]");
-    By nextPageButtonLocator = By.xpath("//button[@class=\"fc63351294 a822bdf511 e3c025e003 fa565176a8 cfb238afa1 c334e6f658 ae1678b153 c9fa5fc96d be298b15fa\"]");
-    By checkOutDateLocator = By.xpath("//span[@aria-label=\"" + checkOutDate + "\"]");
-    By searchButtonLocator = By.xpath("//span[contains(text(),'Search')]");
+    private By destinationTextBoxLocator = By.id(":rc:");
+    private By checkInDateDropDownMenuLocator = By.xpath("//button[@data-testid=\"date-display-field-start\"]");
+    private By checkInDateLocator = By.xpath("//span[@aria-label=\"" + checkInDate + "\"]");
+    private By nextPageButtonLocator = By.xpath("//button[@class=\"fc63351294 a822bdf511 e3c025e003 fa565176a8 cfb238afa1 c334e6f658 ae1678b153 c9fa5fc96d be298b15fa\"]");
+    private By checkOutDateLocator = By.xpath("//span[@aria-label=\"" + checkOutDate + "\"]");
+    private By searchButtonLocator = By.xpath("//span[contains(text(),'Search')]");
 
 
     //Actions
-    private WebElement getDestinationTextBox() {
+    public WebElement getDestinationTextBox() {
         return driver.findElement(destinationTextBoxLocator);
     }
 
@@ -47,16 +53,16 @@ public class HomePage {
         actions.click(destinationTextBox).build().perform();
     }
 
-    public void typeInDestinationTextBox(String destination) {
+    public void typeInDestinationTextBox() {
         WebElement destinationTextBox = getDestinationTextBox();
-        destinationTextBox.sendKeys(destination);
+        destinationTextBox.sendKeys(this.destination);
     }
 
-    private WebElement getCheckInDateDropDownMenuElement() {
+    public WebElement getCheckInDateDropDownMenuElement() {
         return driver.findElement(checkInDateDropDownMenuLocator);
     }
 
-    public void clickOnCheckInDateDropDownMenu() {
+    private void clickOnCheckInDateDropDownMenu() {
         Actions actions = new Actions(driver);
         WebElement CheckInDateDropDownMenu = getCheckInDateDropDownMenuElement();
         actions.moveToElement(CheckInDateDropDownMenu).build().perform();
@@ -64,8 +70,7 @@ public class HomePage {
     }
 
 
-    //Needs Refactoring (String Date) & nextPageButton clicking
-    public void chooseCheckInDate() {
+    private void clickOnCheckInDate() {
         WebElement checkInDateElement = driver.findElement(checkInDateLocator);
         if (checkInDateElement.isDisplayed()) {
             checkInDateElement.click();
@@ -95,23 +100,28 @@ public class HomePage {
         searchButton.click();
     }
 
-    //Refactor selectDate(String month_year, String select_day)
-    public void selectDate() throws InterruptedException {
+
+    private void selectDate() throws InterruptedException {
         List<WebElement> months;
         String currentMonth;
         Calendar cal = Calendar.getInstance();
         currentMonth = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH);
 
-        while (!currentMonth.contains("Oct")){
+        while (!currentMonth.contains(checkInDate.replaceAll("\\d", "").trim())){           //regex to trim Month name out of checkInDate
             months = driver.findElements(By.xpath("//h3[@class=\"ac78a73c96 ab0d1629e5\"]"));
             for (int i = 0; i < months.size(); i++) {
                 currentMonth = months.get(i).getText();
-//                System.out.println(currentMonth);
+//                System.out.println(currentMonth);         //(Checkpoint) (Done)
             }
             clickOnNextPageButton();
         }
-//        System.out.println("Found the Month, and it's: " + currentMonth);
+//        System.out.println("Found the Month, and it's: " + currentMonth);      //(Checkpoint) (Done)
     }
 
-
+    //Bundling together all three actions needed to choose Check-in Date to simplify interfacing in MainTest
+    public void chooseCheckInDate() throws InterruptedException {
+        clickOnCheckInDateDropDownMenu();
+        selectDate();
+        clickOnCheckInDate();
+    }
 }

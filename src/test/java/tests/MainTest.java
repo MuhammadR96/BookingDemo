@@ -28,7 +28,7 @@ public class MainTest {
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://booking.com");
     }
@@ -44,19 +44,14 @@ public class MainTest {
     public void mainTest() throws InterruptedException, IOException {
 
         homePage = new HomePage(driver);
-        Thread.sleep(1000);
         homePage.clickOnDestinationTextBox();
-        homePage.typeInDestinationTextBox("Alexandria");
-        homePage.clickOnCheckInDateDropDownMenu();
-        homePage.selectDate();
-        Thread.sleep(1000);
+        homePage.typeInDestinationTextBox();
         homePage.chooseCheckInDate();
         homePage.chooseCheckOutDate();
         homePage.clickOnSearchButton();
 
         searchResultsPage = new SearchResultsPage(driver);
         searchResultsPage.findDesiredHotel();
-        Thread.sleep(2500);
 
         desiredHotelPage = new DesiredHotelPage(driver);
         desiredHotelPage.clickOnReserveButton();
@@ -68,6 +63,7 @@ public class MainTest {
         String actualTitle = confirmationPage.getTitle();
         String expectedTitle = "Booking.com: Your Details";
         Assert.assertEquals(actualTitle, expectedTitle, "Actual title doesn't match expected title");
+
         System.out.println("Test Passed Successfully");
     }
 }
