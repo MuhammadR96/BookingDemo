@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="017ca6c6-333b-490f-917a-72114c2d2a58" name="Changes" comment="first working test -still without excel-">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+    <list default="true" id="017ca6c6-333b-490f-917a-72114c2d2a58" name="Changes" comment="Final Version -full function as needed-">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/DateFormatter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/myData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/input/myData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/DesiredHotelPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/DesiredHotelPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/ConfirmationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/ConfirmationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/SearchResultsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/SearchResultsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utilities/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReaderMine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReaderMine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReaderMine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utilities/ExcelReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +28,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/INTERVIEWS TASKS/SeamLabs/Homzmart Task"
+    "last_opened_file_path": "D:/INTERVIEWS TASKS/SUMERGE/SumergeAutomationTask"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -61,7 +62,7 @@
       <recent name="org.example.pages" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MainTest">
+  <component name="RunManager" selected="TestNG.MainTest.mainTest">
     <configuration name="ExcelReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.utilities.ExcelReader" />
       <module name="SumergeAutomationTask" />
@@ -71,6 +72,23 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="SumergeAutomationTask" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.MainTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,9 +130,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.MainTest" />
         <item itemvalue="TestNG.MainTest.mainTest" />
-        <item itemvalue="Application.ExcelReaderExample" />
+        <item itemvalue="TestNG.MainTest (1)" />
+        <item itemvalue="TestNG.MainTest" />
       </list>
     </recent_temporary>
   </component>
@@ -134,11 +152,30 @@
       <option name="project" value="LOCAL" />
       <updated>1691256185046</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Final Version -full function as needed-">
+      <created>1691294458609</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691294458609</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first working test -still without excel-" />
-    <option name="LAST_COMMIT_MESSAGE" value="first working test -still without excel-" />
+    <MESSAGE value="Final Version -full function as needed-" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Version -full function as needed-" />
   </component>
 </project>

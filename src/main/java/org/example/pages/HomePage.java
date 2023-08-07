@@ -1,7 +1,8 @@
 package org.example.pages;
 
 import org.example.utilities.Constants;
-import org.example.utilities.ExcelReaderMine;
+import org.example.utilities.DateFormatter;
+import org.example.utilities.ExcelReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,11 +25,13 @@ public class HomePage {
 
     WebDriver driver;
 
+
+    DateFormatter dateFormatter;
     //Refactor and make it Data-Driven (Done)
-    ExcelReaderMine excelReaderMine = new ExcelReaderMine(Constants.EXCEL_FILE_NAME);
-    String checkInDate = excelReaderMine.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.CHECK_IN_DATE);
-    String checkOutDate = excelReaderMine.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.CHECK_OUT_DATE);
-    String destination = excelReaderMine.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.LOCATION);
+    ExcelReader excelReader = new ExcelReader(Constants.EXCEL_FILE_NAME);
+    String checkInDate = excelReader.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.CHECK_IN_DATE);
+    String checkOutDate = excelReader.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.CHECK_OUT_DATE);
+    String destination = excelReader.getCellData(Constants.SHEET_NAME, Constants.ROW, Constants.LOCATION);
 
 
 
@@ -123,5 +126,13 @@ public class HomePage {
         clickOnCheckInDateDropDownMenu();
         selectDate();
         clickOnCheckInDate();
+    }
+
+    public String getCheckInDate() {
+        return checkInDate;
+    }
+
+    public String getCheckOutDate() {
+        return checkOutDate;
     }
 }

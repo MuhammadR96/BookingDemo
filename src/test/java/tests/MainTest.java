@@ -5,12 +5,14 @@ import org.example.pages.ConfirmationPage;
 import org.example.pages.DesiredHotelPage;
 import org.example.pages.HomePage;
 import org.example.pages.SearchResultsPage;
+import org.example.utilities.DateFormatter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -43,6 +45,7 @@ public class MainTest {
     @Test
     public void mainTest() throws InterruptedException, IOException {
 
+        //Homepage Actions
         homePage = new HomePage(driver);
         homePage.clickOnDestinationTextBox();
         homePage.typeInDestinationTextBox();
@@ -50,20 +53,37 @@ public class MainTest {
         homePage.chooseCheckOutDate();
         homePage.clickOnSearchButton();
 
+        //SearchResultsPage Actions
         searchResultsPage = new SearchResultsPage(driver);
         searchResultsPage.findDesiredHotel();
 
+        //DesiredHotelPage Actions
         desiredHotelPage = new DesiredHotelPage(driver);
         desiredHotelPage.clickOnReserveButton();
         desiredHotelPage.clickOnLargeBedRadioButton();
         desiredHotelPage.selectFromAmountDropDownMenu();
         desiredHotelPage.clickOnConfirmReservationButton();
 
+        //ConfirmationPage Actions
         confirmationPage = new ConfirmationPage(driver);
         String actualTitle = confirmationPage.getTitle();
         String expectedTitle = "Booking.com: Your Details";
         Assert.assertEquals(actualTitle, expectedTitle, "Actual title doesn't match expected title");
 
-        System.out.println("Test Passed Successfully");
+        //Data preparation for Assertions
+        DateFormatter dateFormatter = new DateFormatter();
+        String expectedCheckInDate = dateFormatter.changeExcelSheetDatesFormat(homePage.getCheckInDate());
+        String actualCheckInDate = confirmationPage.getCheckInDate();
+        String expectedCheckOutDate = dateFormatter.changeExcelSheetDatesFormat(homePage.getCheckOutDate());
+        String actualCheckOutDate = confirmationPage.getCheckOutDate();
+
+        //Assertions
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actualCheckInDate, expectedCheckInDate);
+        softAssert.assertEquals(actualCheckOutDate, expectedCheckOutDate);
+        softAssert.assertTrue(confirmationPage.getHotelDataCard().getText().contains(searchResultsPage.desiredHotel));
+        softAssert.assertAll();
+
+        System.out.println("Test Passed Successfully");         //Checkpoint (Done)
     }
 }

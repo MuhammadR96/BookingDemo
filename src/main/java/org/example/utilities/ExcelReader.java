@@ -10,14 +10,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 
-public class ExcelReaderMine {
+public class ExcelReader {
 
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
     private Map<String, Integer> columnHeaders;
 
 
-    public ExcelReaderMine(String fileName) throws FileNotFoundException, IOException {
+    public ExcelReader(String fileName) throws FileNotFoundException, IOException {
         String filePath = System.getProperty("user.dir") + "\\input\\" + fileName;
         try {
             File file = new File(filePath);
